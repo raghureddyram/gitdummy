@@ -64,14 +64,15 @@ for repo in repos:
         os.chdir(repo['dummy_repo'])
 
         if not os.path.isdir(repo['dummy_repo_data']):
-            os.mkdir(repo['dummy_repo_data'])
+            print(os.getcwd())
+            os.makedirs(repo['dummy_repo_data'])
         if not os.path.isdir(repo['dummy_repo'] + os.path.sep + '.git'):
             # but it hasn't been inited yet
             init()
     else:
         # directory didn't exist, so make the directory
         os.mkdir(repo['dummy_repo'])
-        os.mkdir(repo['dummy_repo_data'])
+        os.makedirs(repo['dummy_repo_data'])
         os.chdir(repo['dummy_repo'])
         init()
 
